@@ -1,0 +1,194 @@
+
+body{
+    font-family: "Ropa Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+li:hover{
+    border-bottom: 3px solid black;
+}
+
+.form-control {
+        border-radius: 0; /* Elimina el borde redondeado */
+        background-color: #EAEAEA;
+}
+
+.search-icon {
+    width: 20px; /* Ancho del ícono de búsqueda */
+    height: auto; /* Altura ajustada automáticamente */
+}
+    
+.icon-container {
+    margin-right: 20px; /* Ajusta el margen derecho según sea necesario */
+}
+
+.icon-container i {
+    font-size: 1.5rem; /* Ajusta el tamaño del icono según sea necesario */
+}
+
+.image-container {
+    position: relative; /* Establece la posición relativa para poder posicionar el texto de forma absoluta dentro de él */
+}
+
+/* Estilo para el contenedor del texto */
+.text-container {
+    position: absolute; /* Posiciona el texto de forma absoluta sobre la imagen */
+    top: 65%; /* Mueve el texto hacia la mitad del contenedor */
+    left: 21%; /* Mueve el texto hacia la mitad del contenedor */
+    transform: translate(-50%, -50%); /* Centra el texto */
+    color: white; /* Color del texto */
+    font-size: x-large;
+}
+
+.custom-button {
+    border: none; /* Elimina el borde */
+    font-size:20px ;
+    transition: color 0.3s;
+}
+
+.custom-button:hover{
+    border: none; /* Elimina el borde */
+    font-size:20px ;
+    color: gray;
+}
+
+.image2-container {
+    position: relative; /* Establece la posición relativa para poder posicionar el texto de forma absoluta dentro de él */
+}
+
+/* Estilo para el contenedor del texto */
+.text2-container {
+    position: absolute; /* Posiciona el texto de forma absoluta sobre la imagen */
+    top: 65%; /* Mueve el texto hacia la mitad del contenedor */
+    left: 12%; /* Mueve el texto hacia la mitad del contenedor */
+    transform: translate(-50%, -50%); /* Centra el texto */
+    color: black; /* Color del texto */
+    font-size: x-large;
+}
+
+.custom2-button {
+    border: none; /* Elimina el borde */
+    font-size:20px ;
+    transition: color 0.3s;
+    background-color: black;
+    color: white;
+    transition: color 0.3s;
+}
+
+.custom2-button:hover{
+    border: none; /* Elimina el borde */
+    font-size:20px ;
+    color: gray;
+}
+
+.button-container {
+    width: auto;
+    height: 600px;
+    background: white;
+    border: none;
+    position: relative; /* Establece el posicionamiento relativo para permitir el posicionamiento absoluto de los botones */
+}
+
+.custom3-button,
+.custom4-button {
+    border: none;
+    font-size: 20px;
+    transition: color 0.3s;
+    padding: 5px;
+    position: absolute; /* Establece el posicionamiento absoluto */
+    top: 40px;
+}
+
+.custom3-button {
+    background-color: black;
+    color: white;
+    left: 130px;
+    width: 120px; /* Ancho fijo */
+    
+}
+
+.custom4-button {
+    background-color: white;
+    color: black;
+    left: 270px;
+    width: 120px; /* Ancho fijo */
+    border: 1px solid black; /* Agrega el borde y define el color */
+}
+
+
+.custom4-button:hover{
+    border: 1px solid black;
+    font-size: 20px;
+    transition: color 0.3s; /* Transición de color */
+    background-color: black;
+    color: white;
+    
+
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-gap: 20px;
+    top: 115px;
+    left: 130px;
+    position: absolute;
+  }
+
+.card-container2{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-gap: 20px;
+    top: 115px;
+    left: 430px;
+    position: absolute;
+}
+.card-container3{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-gap: 20px;
+    top: 115px;
+    left: 730px;
+    position: absolute;
+}
+
+.card-container4{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-gap: 20px;
+    top: 115px;
+    left: 1040px;
+    position: absolute;
+}
+
+
+  
+  .card {
+    width: 18rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    border: none;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .card-text {
+    font-size: 14px;
+  }
+  
+
+  

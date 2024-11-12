@@ -1,0 +1,107 @@
+/* Estilos generales */
+/* Estilos generales */
+body {
+    font-family: "Ropa Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Estilos para el navbar */
+.navbar {
+    padding: 0;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-brand img {
+    max-width: 100%;
+}
+
+.navbar-nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link {
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: gray;
+}
+
+.navbar-collapse {
+    display: flex !important;
+    justify-content: flex-end;
+}
+
+/* Estilos para dispositivos pequeños */
+@media (max-width: 576px) {
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-link {
+        margin-bottom: 10px;
+    }
+
+    .text-container, .text2-container {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .custom3-button, .custom4-button {
+        position: static;
+        margin-top: 10px;
+        width: auto;
+    }
+
+    .card-container, .card-container2, .card-container3, .card-container4 {
+        position: static;
+        display: block;
+        margin-top: 20px;
+        left: 0;
+    }
+}
+
+/* Estilos para dispositivos medianos */
+@media (min-width: 576px) {
+    .navbar-collapse {
+        display: none;
+    }
+}
+
+/* Estilos para dispositivos grandes */
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar-collapse {
+        display: flex !important;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    .nav-link {
+        margin-right: 15px;
+    }
+}
