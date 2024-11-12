@@ -29,8 +29,8 @@ jobs:
       - name: Create SSH Keys from secrets
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secret.SSH_PRIVATE_KEY}}" > ./keys/denisse_server
-          echo "{{secret.SSH_PUBLIC_KEY}}" > ./keys/denisse_server.pub
+          echo "${{ secrets.SSH_PRIVATE_KEY}}" > ./keys/denisse_server
+          echo "{{secrets.SSH_PUBLIC_KEY}}" > ./keys/denisse_server.pub
           chmod 777 ./keys/denisse_server
           chmod 777 ./keys/denisse_server.pub
 
