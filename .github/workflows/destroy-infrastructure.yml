@@ -30,7 +30,7 @@ jobs:
         run: |
           mkdir -p keys
           echo "${{ secrets.SSH_PRIVATE_KEY}}" > ./keys/denisse_server
-          echo "{{secrets.SSH_PUBLIC_KEY}}" > ./keys/denisse_server.pub
+          echo "${{secrets.SSH_PUBLIC_KEY}}" > ./keys/denisse_server.pub
           chmod 777 ./keys/denisse_server
           chmod 777 ./keys/denisse_server.pub
 
