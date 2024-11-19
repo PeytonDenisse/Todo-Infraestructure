@@ -21,3 +21,12 @@ variable "MYSQL_PASSWORD"{
 variable "MYSQL_HOST"{
     type = string
 }
+
+variable "DOMAIN"{
+    type = string
+}
+
+
+variable "USER_EMAIL"{
+    type = string
+}

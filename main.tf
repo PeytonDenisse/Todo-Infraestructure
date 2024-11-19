@@ -40,7 +40,7 @@ resource "digitalocean_project" "denisse_server_project" {
 
 //crear llaves 
 resource "digitalocean_ssh_key" "denisse_server_ssh_key" {
-    name = "denisse_server_key2"
+    name = "denisse_server_key"
     public_key = file("./keys/denisse_server.pub")
   
 }
@@ -59,21 +59,25 @@ resource "digitalocean_droplet" "denisse_server_droplet" {
 
 
     provisioner "remote-exec" {
-       inline = [ 
-        "mkdir -p /projects",
-        "touch /projects/.env",
-        "echo \"MYSQL_DB=${var.MYSQL_DB}\" >> /projects/.env",
-        "echo \"MYSQL_USER=${var.MYSQL_USER}\" >> /projects/.env",
-        "echo \"MYSQL_PASSWORD=${var.MYSQL_PASSWORD}\" >> /projects/.env",
-        "echo \"MYSQL_HOST=${var.MYSQL_HOST}\" >> /projects/.env",
-        
+        inline = [ 
+            "mkdir -p /projects",
+            "mkdir -p /volumes/nginx/html",
+            "mkdir -p /volumes/nginx/certs",
+            "mkdir -p /volumes/nginx/vhostd",
+            "touch /projects/.env",
+            "echo \"MYSQL_DB=${var.MYSQL_DB}\" >> /projects/.env",
+            "echo \"MYSQL_HOST=${var.MYSQL_HOST}\" >> /projects/.env",
+            "echo \"MYSQL_PASSWORD=${var.MYSQL_PASSWORD}\" >> /projects/.env",
+            "echo \"MYSQL_USER=${var.MYSQL_USER}\" >> /projects/.env",
+            "echo \"DOMAIN=${var.DOMAIN}\" >> /projects/.env",
+            "echo \"USER_EMAIL=${var.USER_EMAIL}\" >> /projects/.env",
         ]
-      connection {
-        type = "ssh"
-        user = "root"
-        private_key = file("./keys/denisse_server")
-        host = self.ipv4_address
-      }
+        connection {
+            type = "ssh"
+            user ="root"
+            private_key = file("./keys/denisse_server")
+            host = self.ipv4_address
+        }
     }
 
     provisioner "file" {
@@ -92,27 +96,27 @@ resource "digitalocean_droplet" "denisse_server_droplet" {
 
 //instalar docker 
 
-# resource "time_sleep" "wait_docker_install" {
-#     depends_on = [ digitalocean_droplet.denisse_server_droplet ]
-#     create_duration = "130s"
+resource "time_sleep" "wait_docker_install" {
+    depends_on = [ digitalocean_droplet.denisse_server_droplet ]
+    create_duration = "130s"
 
-# }
+}
 
-# resource "null_resource" "init_api" {
-#   depends_on = [ time_sleep.wait_docker_install ]
-#   provisioner "remote-exec" {
-#     inline = [ 
-#       "cd /projects",
-#       "docker-compose up -d",
-#      ]
-#      connection {
-#       type = "ssh"
-#       user = "root"
-#       private_key = file("./keys/denisse_server")
-#       host = digitalocean_droplet.denisse_server_droplet.ipv4_address
-#     }
-#   }
-# }
+resource "null_resource" "init_api" {
+  depends_on = [ time_sleep.wait_docker_install ]
+  provisioner "remote-exec" {
+    inline = [ 
+      "cd /projects",
+      "docker-compose up -d",
+     ]
+     connection {
+      type = "ssh"
+      user = "root"
+      private_key = file("./keys/denisse_server")
+      host = digitalocean_droplet.denisse_server_droplet.ipv4_address
+    }
+  }
+}
 
 //conectarse a ssh 
 # resource "null_resource" "init_nginx" {
